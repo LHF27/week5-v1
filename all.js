@@ -47,6 +47,22 @@ const ticketRate = document.querySelector("#ticketRate");
 const ticketDescription = document.querySelector("#ticketDescription");
 const addTicketBtn = document.querySelector(".addTicket-btn");
 
+// !!! img url 判斷 
+ticketImgUrl.addEventListener("blur", function() {
+    const url = ticketImgUrl.value.trim();
+    if (url === "") return; // 如果沒填就不做檢查
+
+    const testImg = new Image();
+    testImg.src = url;
+
+    // 如果圖片載入失敗（死連結或非圖片）
+    testImg.onerror = function() {
+        alert("警告：此圖片網址無法正常載入，請確認網址是否正確！");
+        ticketImgUrl.value = ""; // 清空錯誤的網址，或讓使用者重新輸入
+        ticketImgUrl.focus();    // 把游標重新聚焦回圖片輸入框
+    };
+});
+
 addTicketBtn.addEventListener("click", function(e){
     e.preventDefault();
     if (
