@@ -127,17 +127,31 @@ function renderData(tickets) {
 
 
 // 取得
-function getData() {
-    axios.get(url)
-    .then(function(response){
+// function getData() {
+//     axios.get(url)
+//     .then(function(response){
+//         console.log(response);
+//         data = response.data.data;
+//         renderData(data);
+//     })
+//     .catch(function(error){
+//         console.log("發生錯誤");
+//     })
+// };
+
+
+// async await 方法
+async function getData() {
+    try{
+        const response = await axios.get(url);
         console.log(response);
         data = response.data.data;
         renderData(data);
-    })
-    .catch(function(error){
+    }catch{
         console.log("發生錯誤");
-    })
-};
+    }
+}
+
 
 getData();
 
