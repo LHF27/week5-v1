@@ -66,13 +66,13 @@ ticketImgUrl.addEventListener("blur", function() {
 addTicketBtn.addEventListener("click", function(e){
     e.preventDefault();
     if (
-        ticketName.value === "" ||
-        ticketImgUrl.value === "" ||
+        ticketName.value.trim() === "" ||
+        ticketImgUrl.value.trim() === "" ||
         ticketRegion.value === "" ||
         ticketPrice.value === "" ||
         ticketNum.value === "" ||
         ticketRate.value === "" ||
-        ticketDescription.value === ""
+        ticketDescription.value.trim() === ""
     ) {
         alert("請填寫所有欄位！"); 
         return; 
